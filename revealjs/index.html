@@ -1,40 +1,65 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html>
+  <head>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" />
+	<style>
+/* Remove default reveal.js padding for this specific slide */
+.reveal .slides section[data-state="full-slide"] {
+  padding: 0;
+}
 
-		<title>reveal.js</title>
+/* Make the two-column layout fill the entire screen */
+.two-column-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+.two-column-layout .column-left,
+.two-column-layout .column-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+.two-column-layout img,
+.two-column-layout pre {
+  max-width: 100%;
+  max-height: 100%;
+}
+	</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+		<section data-background-color="#222" data-state="full-slide">
+			<div class="two-column-layout r-stretch">
+				<div class="column-left">
+				<img src="../images/930-cgi-die-shot-large.jpg" alt="Description of the image">
+				</div>
+				<div class="column-right">
+				<pre><code class="language-javascript">
+					// Your code example goes here
+					function helloWorld() {
+					console.log("Hello, Reveal.js!");
+					}
+				</code></pre>
+				</div>
 			</div>
-		</div>
-
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+		</section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script>
+        Reveal.initialize({
+            plugins: [ RevealZoom ]
+        });
+    </script>
+  </body>
 </html>
